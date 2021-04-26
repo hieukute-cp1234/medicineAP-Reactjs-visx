@@ -32,8 +32,8 @@ const LayoutComponent = (props) => {
                 Home
               </NavLink>
             </Menu.Item>
-            <Menu.Item key="/ware-house" icon={<FileProtectOutlined />}>
-              <NavLink to="/">
+            <Menu.Item key="/production-plan" icon={<FileProtectOutlined />}>
+              <NavLink to="/production-plan">
                 Kế hoạch sản xuất
               </NavLink>
             </Menu.Item>

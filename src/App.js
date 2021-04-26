@@ -6,6 +6,7 @@ import Recipe from './page/recipe';
 import StepsConstructive from './page/steps-constructive';
 import WareHouseIngredient from './page/warehouse-ingredient'
 import WareHouseProduct from './page/warehouse-product'
+import ProductionPlan from './page/production-plan'
 import {
   BrowserRouter as Router,
   Switch,
@@ -22,6 +23,9 @@ function App() {
           </Route>
           <Route path='/registration'>
             <Registration />
+          </Route>
+          <Route path='/production-plan'>
+            <ProductionPlan />
           </Route>
           <Route path='/recipe'>
             <Recipe />
