@@ -17,7 +17,6 @@ const LayoutComponent = (props) => {
   const { SubMenu } = Menu;
   const { pathname } = useLocation()
   const onCollapse = collapsed => {
-    console.log(collapsed);
     setCollapsed(collapsed);
   };
   return (
