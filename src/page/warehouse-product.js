@@ -1,18 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../layout/layout'
-import { Table, Tag, Checkbox } from 'antd';
-import * as atom from './../recoil/atom/atom';
+import { Table, Tag, Button, Modal, InputNumber } from 'antd';
+import * as atom from '../recoil/atom/index';
 import { useRecoilValue } from 'recoil'
 
 const WareHouseProduct = () => {
-
-  useEffect(()=>{
-    data.map((item)=>{
-      console.log(item.element)  
+  const [modal, setModal] = useState(false)
+  useEffect(() => {
+    data.map((item) => {
+      console.log(item.element)
     })
-    // data.element.map((item)=>{console.log(item.element)})
     console.log(data.element)
-  },[])
+  }, [])
 
   const data = useRecoilValue(atom.getMedicineData)
   const columns = [
@@ -50,7 +49,7 @@ const WareHouseProduct = () => {
           color = 'geekblue';
           text = 'Sufficient quantity'
         }
-        return (  
+        return (
           <Tag color={color} key={amount}>
             {text}
           </Tag>
@@ -58,16 +57,31 @@ const WareHouseProduct = () => {
       },
     },
     {
-      title: 'Done',
+      title: 'Đặt sản xuất',
       dataIndex: 'id',
       key: 'id',
-      render: id => <Checkbox key={id} />,
+      render: id => <Button key={id} onClick={showModal}>Sản xuất</Button>,
     },
   ];
+
+  const showModal = () => {
+    setModal(true);
+  };
+
+  const handleOk = () => {
+    setModal(false);
+  };
+
+  const handleCancel = () => {
+    setModal(false);
+  };
 
   return (
     <Layout>
       <Table columns={columns} dataSource={data} />
+      <Modal title="Nhập số lượng sản xuất" visible={modal} onOk={handleOk} onCancel={handleCancel}>
+        <InputNumber label="Số lượng:"/>
+      </Modal>
     </Layout>
   )
 }

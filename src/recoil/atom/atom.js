@@ -1,11 +1,2 @@
-import { atom } from 'recoil'
-import * as key from './key'
-
-//định nghĩa các atom hay các state chung
-
-export const getMedicineData = atom({//atom trả về state là một mảng data rỗng
-  key:key.getMedicineData,
-  default:[]
-})
-
-
+export const GET_DATA_MEDICINE = 'GET_DATA_MEDICINE';
+export const GET_ID_RECIPE = 'GET_ID_RECIPE';
