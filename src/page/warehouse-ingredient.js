@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '../layout/layout';
+import Layout from '../layout/Layout';
 //import * as atom from '../recoil/atom';
 import { useRecoilValue } from 'recoil';
 import { Table, Tag, Skeleton } from 'antd';
@@ -24,7 +24,7 @@ const WareHouse = () => {
       }
     })
   })
-  
+
   const columns = [
     // {
     //   title: 'STT',
@@ -77,7 +77,13 @@ const WareHouse = () => {
   ];
   return (
     <Layout>
-      {element === [] ? <Skeleton /> : <Table columns={columns} dataSource={element} />}
+      {element === [] ? <Skeleton /> :
+        <Table
+          columns={columns}
+          dataSource={element}
+          scroll={data.length > 5 ? { y: 362 } : null}
+        />
+      }
     </Layout>
   )
 }

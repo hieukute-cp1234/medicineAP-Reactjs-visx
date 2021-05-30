@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, Card, Col, Row } from 'antd';
 import { useHistory } from 'react-router-dom';
-import Layout from '../layout/layout';
+import Layout from '../layout/Layout';
 import * as api from '../service/api';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import * as atom from './../recoil/atom/index';

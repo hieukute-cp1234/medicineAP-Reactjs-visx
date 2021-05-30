@@ -7,6 +7,7 @@ import { LinearGradient } from '@visx/gradient';
 import ParentSize from '@visx/responsive/lib/components/ParentSize';
 import { useRecoilValue  } from 'recoil';
 import * as selector from '../recoil/selectors/index';
+import { ConsoleSqlOutlined } from '@ant-design/icons';
 
 const peach = '#fd9b93';
 const pink = '#fe6e9e';
@@ -17,7 +18,7 @@ const lightpurple = '#374469';
 const white = '#ffffff';
 export const background = '#272b4d';
 
-const rawTree: TreeNode = {
+const rawTree = {
   name: 'hieukute',
   children: [
     {
@@ -60,14 +61,13 @@ const rawTree: TreeNode = {
 
 /** Handles rendering Root, Parent, and other Nodes. */
 function Node({ node }) {
-  console.log(node)
+  console.log(node);
   const width = 100;
   const height = 30;
   const centerX = -width / 2;
   const centerY = -height / 2;
   const isRoot = node.depth === 0;
-  const isParent = !!node.children;
-  console.log(node.depth)
+  const isParent = !!node.element;
 
   if (isRoot) return <RootNode node={node} />;
   if (isParent) return <ParentNode node={node} />;
@@ -104,6 +104,7 @@ function Node({ node }) {
 }
 
 function RootNode({ node }) {
+  console.log(node);
   return (
     <Group top={node.x} left={node.y}>
       <circle r={20} fill="url('#lg')" />
@@ -126,7 +127,7 @@ function ParentNode({ node }) {
   const height = 30;
   const centerX = -width / 3;
   const centerY = -height / 2;
-
+  console.log(node.data);
   return (
     <Group top={node.x} left={node.y}>
       <rect
@@ -149,7 +150,7 @@ function ParentNode({ node }) {
         style={{ pointerEvents: 'none' }}
         fill={white}
       >
-        {node.data.name}
+        {node.data.element.name}
       </text>
     </Group>
   );
@@ -158,7 +159,9 @@ function ParentNode({ node }) {
 const defaultMargin = { top: 10, left: 80, right: 80, bottom: 10 };
 
 function Example({ width, height, margin = defaultMargin }) {
-  const data = useMemo(() => hierarchy(rawTree), []);
+  const recoil = useRecoilValue(selector.recipeItem);
+  const data =  hierarchy(recoil)
+  console.log(data)
   const yMax = height - margin.top - margin.bottom;
   const xMax = width - margin.left - margin.right;
 
@@ -166,7 +169,7 @@ function Example({ width, height, margin = defaultMargin }) {
     <svg width={width} height={height}>
       <LinearGradient id="lg" from={peach} to={pink} />
       <rect width={width} height={height} rx={14} fill={background} />
-      <Tree root={data} size={[yMax, xMax]}>
+      <Tree root={rawTree} size={[yMax, xMax]}>
         {tree => (
           <Group top={margin.top} left={margin.left}>
             {tree.links().map((link, i) => {
@@ -195,9 +198,7 @@ function Example({ width, height, margin = defaultMargin }) {
 }
 
 export default function Recipe() {
-  const data = useRecoilValue(selector.recipeItem);
   return (
-    
     <ParentSize>{() => <Example width={1000} height={620} />}</ParentSize>
   )
 }

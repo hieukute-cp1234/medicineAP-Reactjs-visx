@@ -1,19 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import Layout from '../layout/layout'
+import React, { useState } from 'react'
+import Layout from '../layout/Layout'
 import { Table, Tag, Button, Modal, InputNumber } from 'antd';
 import * as atom from '../recoil/atom/index';
 import { useRecoilValue } from 'recoil'
 
 const WareHouseProduct = () => {
-  const [modal, setModal] = useState(false)
-  useEffect(() => {
-    data.map((item) => {
-      console.log(item.element)
-    })
-    console.log(data.element)
-  }, [])
-
-  const data = useRecoilValue(atom.getMedicineData)
+  const [modal, setModal] = useState(false);
+  const data = useRecoilValue(atom.getMedicineData);
   const columns = [
     {
       title: 'STT',
@@ -78,7 +71,7 @@ const WareHouseProduct = () => {
 
   return (
     <Layout>
-      <Table columns={columns} dataSource={data} />
+      <Table columns={columns} dataSource={data} scroll={data.length > 5 ? { y: 362 } : null}/>
       <Modal title="Nhập số lượng sản xuất" visible={modal} onOk={handleOk} onCancel={handleCancel}>
         <InputNumber label="Số lượng:"/>
       </Modal>

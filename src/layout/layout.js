@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import HeaderComponent from './header';
-import FooterComponent from './footer';
+import HeaderComponent from './Header';
+import FooterComponent from './Footer';
 import './layout.css'
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
@@ -56,15 +56,12 @@ const LayoutComponent = (props) => {
         </Sider>
         <Layout className="site-layout">
           <HeaderComponent />
-          <Breadcrumb style={{ margin: '16px 0' }}>
-            <Breadcrumb.Item>Không Sợ Thất Bại - Luôn Luôn Học Hỏi - không Ngừng Thay Đổi</Breadcrumb.Item>
-          </Breadcrumb>
+          <Breadcrumb style={{ margin: '8px 0' }}/>
           <Content style={{ margin: '0 16px' }}>
             <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
               {props.children}
             </div>
           </Content>
-          <FooterComponent />
         </Layout>
       </Layout>
     </>
