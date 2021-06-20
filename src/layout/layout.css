@@ -7,3 +7,8 @@
 .site-layout .site-layout-background {
   background: #fff;
 }
+
+.flex {
+  display: flex;
+  box-shadow: 5px 10px #888888;
+}

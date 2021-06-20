@@ -1,50 +1,54 @@
-import './App.css';
-import Login from './page/login';
-import Registration from './page/registration';
-import Home from './page/home';
-import Recipe from './page/recipe';
-import StepsConstructive from './page/steps-constructive';
-import WareHouseIngredient from './page/warehouse-ingredient'
-import WareHouseProduct from './page/warehouse-product'
-import ProductionPlan from './page/production-plan'
+import React, { lazy } from 'react'
+import Suspense from './route/Suspense';
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
 
+const WareHouseIngredient = lazy(() => import('./page/warehouseIngredient/index'));
+const Login = lazy(() => import('./page/login/index'));
+const Home = lazy(() => import('./page/home/index'));
+const CreateProcess = lazy(() => import('./page/createProcess/index'));
+const WareHouseProduct = lazy(() => import('./page/warehouseProduct/index'));
+const ProductionPlan = lazy(() => import('./page/productionPlan/index'));
+const Registration = lazy(() => import('./page/registration/index'));
+const Recipe = lazy(() => import('./page/recipe/index'));
+const DetailProcess = lazy(() => import('./page/detailProcess/index'));
+
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <Switch>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/registration'>
-            <Registration />
-          </Route>
-          <Route path='/production-plan'>
-            <ProductionPlan />
-          </Route>
-          <Route path='/recipe'>
-            <Recipe />
-          </Route>
-          <Route path='/steps-constructive'>
-            <StepsConstructive />
-          </Route>
-          <Route path='/ware-house-ingredient'>
-            <WareHouseIngredient />
-          </Route>
-          <Route path='/ware-house-product'>
-            <WareHouseProduct />
-          </Route>
-          <Route path='/'>
-            <Home />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/detail-process'>
+          <Suspense component={<DetailProcess />} />
+        </Route>
+        <Route path='/login'>
+          <Suspense component={<Login />} />
+        </Route>
+        <Route path='/registration'>
+          <Suspense component={<Registration />} />
+        </Route>
+        <Route path='/production-plan'>
+          <Suspense component={<ProductionPlan />} />
+        </Route>
+        <Route path='/recipe'>
+          <Suspense component={<Recipe />} />
+        </Route>
+        <Route path='/create-process'>
+          <Suspense component={<CreateProcess />} />
+        </Route>
+        <Route path='/ware-house-ingredient'>
+          <Suspense component={<WareHouseIngredient />} />
+        </Route>
+        <Route path='/ware-house-product'>
+          <Suspense component={<WareHouseProduct />} />
+        </Route>
+        <Route path='/'>
+          <Suspense component={<Home />} />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

@@ -20,10 +20,10 @@ const LoginComponent = () => {
   return (
     <>
       <Row>
-        <Col span={12} offset={4}>
-          <h1 style={{marginLeft:'220px',marginTop:'50px'}}>Login</h1>
+        <Col span={12} offset={4} style={{ textAlign: 'center', marginTop: '100px' }}>
+          <h1 style={{ marginLeft: '220px', marginTop: '50px' }}>Login</h1>
           <Form
-            style={{marginTop:'50px'}}
+            style={{ marginTop: '50px' }}
             {...layout}
             name="basic"
             initialValues={{ remember: true }}
@@ -48,7 +48,7 @@ const LoginComponent = () => {
               <Button type="primary" htmlType="submit">
                 Đăgn nhập
               </Button>
-              <Button type="primary" htmlType="submit" style={{marginLeft:'20px'}}>
+              <Button type="primary" htmlType="submit" style={{ marginLeft: '20px' }}>
                 Đăng kí
               </Button>
             </Form.Item>

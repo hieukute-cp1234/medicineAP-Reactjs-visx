@@ -1,15 +1,10 @@
-import axios from 'axios'
+import axios from 'axios';
+import { BASE_API } from '../constants/configAPI';
 
-export const getMedicineData = async () => {
-  const url = `https://608302895dbd2c001757b052.mockapi.io/medicine`;
-  const response = await axios.get(url);
-  const result = await response.status === 200 ? await response.data : [];
-  return result;
-}
-
-export const getProductionPlanData = async () => {
-  const url = `https://60b30dede0275c0017bfc9ff.mockapi.io/productionPlan`;
-  const response = await axios.get(url);
-  const result = await response.status === 200 ? await response.data : [];
-  return result;
-}
+export const api = axios.create({
+  baseURL: BASE_API,
+  headers: {
+    Authorization: "Bearer ",
+    "Content-Type": "application/json",
+  },
+});
