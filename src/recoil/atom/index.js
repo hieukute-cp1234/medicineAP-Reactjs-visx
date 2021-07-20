@@ -30,3 +30,8 @@ export const medicineById = atom({
   key: key.MEDICINE_BY_ID,
   default: ''
 });
+
+export const HelpById = atom({
+  key: 'helpers',
+  default: '60d6926b4a70c19367914086'
+})

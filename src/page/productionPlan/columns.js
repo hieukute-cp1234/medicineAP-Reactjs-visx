@@ -46,13 +46,6 @@ const renderTag = (status) => {
 export const columns = (edit, goBack) => {
   return [
     {
-      title: 'STT',
-      dataIndex: 'id',
-      width: '6%',
-      editable: true,
-      align: 'center',
-    },
-    {
       title: 'Name',
       dataIndex: 'name',
       width: '30%',

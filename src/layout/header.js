@@ -12,7 +12,8 @@ const HeaderComponent = (props) => {
   const { click } = props;
   const history = useHistory();
   const goBack = () => {
-    history.goBack();
+    localStorage.clear();
+    history.push('/login');
   };
   return (
     <>
@@ -28,7 +29,7 @@ const HeaderComponent = (props) => {
           </Col>
           <Col span={8} style={{ textAlign: 'right' }}>
             <Button
-              title="Back"
+              title="SignOut"
               icon={<RollbackOutlined />}
               onClick={goBack}
             />

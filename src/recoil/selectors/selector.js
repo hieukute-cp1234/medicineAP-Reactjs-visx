@@ -6,3 +6,6 @@ export const GET_PROCESS_BY_ID = 'GET_PROCESS_BY_ID';
 
 export const GET_PLAN_DATA = 'GET_PLAN_DATA';
 export const PUT_PLAN_DATA = 'PUT_PLAN_DATA';
+
+export const GET_PLAN_BY_ID = 'GET_PLAN_BY_ID';
+

@@ -1,38 +1,44 @@
-import React from 'react'
-import { Form, Input, Button, Row, Col } from 'antd'
-
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
-const tailLayout = {
-  wrapperCol: { offset: 8, span: 16 },
-};
+import React from 'react';
+import { Form, Input, Button, Row, Col, message } from 'antd';
+import { useHistory } from 'react-router-dom';
+import { style } from './style';
+import { register } from '../../service/auth';
 
 const RegistrationComponent = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
+  const history = useHistory();
+  const onFinish = async (values) => {
+    const newArr = {
+      email: values.email,
+      password: values.password,
+    }
+    const result = await register(newArr);
+    if (result.code === 200) {
+      message.success(result.message, 2);
+      history.push('/login');
+    } else {
+      message.error(result.message, 2)
+    }
   };
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
+  const goLogin = () => {
+    history.push('/login');
+  }
+
   return (
     <>
       <Row>
-        <Col span={12} offset={4}>
-          <h1 style={{ marginLeft: '220px', marginTop: '50px' }}>Đăng kí</h1>
+        <Col span={10} offset={7} style={style.wrapper}>
+          <h1>Register</h1>
           <Form
-            style={{marginTop:'50px'}}
-            {...layout}
+            style={style.form}
+            {...style.layout}
             name="basic"
             initialValues={{ remember: true }}
             onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
           >
             <Form.Item
-              label="Username"
-              name="username"
+              label="Email"
+              name="email"
               rules={[{ required: true, message: 'Please input your username!' }]}
             >
               <Input />
@@ -66,9 +72,12 @@ const RegistrationComponent = () => {
             >
               <Input.Password />
             </Form.Item>
-            <Form.Item {...tailLayout}>
+            <Form.Item {...style.tailLayout}>
               <Button type="primary" htmlType="submit">
-                Đăng kí
+                Register
+              </Button>
+              <Button type="primary" onClick={goLogin} style={style.buttonLeft}>
+                Login
               </Button>
             </Form.Item>
           </Form>

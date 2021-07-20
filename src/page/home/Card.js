@@ -25,9 +25,11 @@ const CardComponent = (props) => {
         <Button
           style={style.button}
           onClick={() => recipe(item)}
+          type="primary"
           title='Thành phần'
         />
         <Button
+          type="primary"
           marginLeft='10px'
           title='Công đoạn'
           onClick={() => detailProcess(item)}

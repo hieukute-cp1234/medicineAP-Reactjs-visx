@@ -1,5 +1,6 @@
 import React, { lazy } from 'react'
 import Suspense from './route/Suspense';
+import PrivateRoute from './route/privateRoute';
 import {
   BrowserRouter as Router,
   Switch,
@@ -20,33 +21,33 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/detail-process'>
+        <PrivateRoute path='/detail-process'>
           <Suspense component={<DetailProcess />} />
-        </Route>
+        </PrivateRoute>
         <Route path='/login'>
           <Suspense component={<Login />} />
         </Route>
         <Route path='/registration'>
           <Suspense component={<Registration />} />
         </Route>
-        <Route path='/production-plan'>
+        <PrivateRoute path='/production-plan'>
           <Suspense component={<ProductionPlan />} />
-        </Route>
-        <Route path='/recipe'>
+        </PrivateRoute>
+        <PrivateRoute path='/recipe'>
           <Suspense component={<Recipe />} />
-        </Route>
-        <Route path='/create-process'>
+        </PrivateRoute>
+        <PrivateRoute path='/create-process'>
           <Suspense component={<CreateProcess />} />
-        </Route>
-        <Route path='/ware-house-ingredient'>
+        </PrivateRoute>
+        <PrivateRoute path='/ware-house-ingredient'>
           <Suspense component={<WareHouseIngredient />} />
-        </Route>
-        <Route path='/ware-house-product'>
+        </PrivateRoute>
+        <PrivateRoute path='/ware-house-product'>
           <Suspense component={<WareHouseProduct />} />
-        </Route>
-        <Route path='/'>
+        </PrivateRoute>
+        <PrivateRoute path='/'>
           <Suspense component={<Home />} />
-        </Route>
+        </PrivateRoute>
       </Switch>
     </Router>
   );

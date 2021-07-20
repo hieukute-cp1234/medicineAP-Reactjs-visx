@@ -25,14 +25,6 @@ export const columns = (showModal) => {
   }
   return [
     {
-      title: 'STT',
-      dataIndex: 'id',
-      key: 'id',
-      align: 'center',
-      width: '10%',
-      render: id => <p>{id}</p>,
-    },
-    {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
