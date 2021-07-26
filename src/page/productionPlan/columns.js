@@ -1,8 +1,8 @@
-import Button from '../../component/Button';
-import { EditFilled, FileTextOutlined } from '@ant-design/icons';
-import { Tag } from 'antd';
-import { handleStatus } from '../../helpers/handleStatus';
-import { colorStatus } from '../../constants/color';
+import Button from "../../component/Button";
+import { EditFilled, FileTextOutlined } from "@ant-design/icons";
+import { Tag } from "antd";
+import { handleStatus } from "../../helpers/handleStatus";
+import { colorStatus } from "../../constants/color";
 
 const renderAction = (id, name, edit, goBack) => {
   return (
@@ -10,7 +10,7 @@ const renderAction = (id, name, edit, goBack) => {
       <Button
         key={id}
         onClick={() => edit(id, name)}
-        title='Edit'
+        title="Edit"
         icon={<EditFilled />}
       />
       <Button
@@ -20,11 +20,11 @@ const renderAction = (id, name, edit, goBack) => {
         onClick={goBack}
       />
     </span>
-  )
-}
+  );
+};
 
 const renderTag = (status) => {
-  let color
+  let color;
   switch (status) {
     case 0:
       color = colorStatus.GREEN;
@@ -40,49 +40,57 @@ const renderTag = (status) => {
     <Tag color={color} key={status}>
       {handleStatus(status)}
     </Tag>
-  )
-}
+  );
+};
 
 export const columns = (edit, goBack) => {
   return [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      width: '30%',
+      title: "Name plan",
+      dataIndex: "name",
+      width: "20%",
       editable: true,
-      align: 'center',
+      align: "center",
     },
     {
-      title: 'Amount',
-      dataIndex: 'amount',
-      width: '9%',
+      title: "Name product",
+      dataIndex: "medicine",
+      width: "15%",
       editable: true,
-      align: 'center'
+      align: "center",
+      render: (medicine) => <p>{medicine.name}</p>,
     },
     {
-      title: 'Dua Date',
-      dataIndex: 'duaDate',
-      width: '25%',
+      title: "Amount",
+      dataIndex: "amount",
+      width: "9%",
       editable: true,
-      align: 'center',
-      render: (duaDate) => duaDate.slice(0, 10)
+      align: "center",
     },
     {
-      title: 'Status',
-      dataIndex: 'status',
-      width: '10%',
+      title: "Dua Date",
+      dataIndex: "duaDate",
+      width: "20%",
       editable: true,
-      align: 'center',
-      render: (status) => renderTag(status)
+      align: "center",
+      render: (duaDate) => duaDate.slice(0, 10),
     },
     {
-      title: 'Action',
-      dataIndex: '_id',
-      backgroundColor: 'black',
-      key: '_id',
-      width: '20%',
-      align: 'center',
+      title: "Status",
+      dataIndex: "status",
+      width: "10%",
+      editable: true,
+      align: "center",
+      render: (status) => renderTag(status),
+    },
+    {
+      title: "Action",
+      dataIndex: "_id",
+      backgroundColor: "black",
+      key: "_id",
+      width: "20%",
+      align: "center",
       render: (_id, name) => renderAction(_id, name, edit, goBack),
     },
   ];
-}
+};
