@@ -1,5 +1,6 @@
 export const colorStatus = {
   GREEN: 'green',
   VOLCANO: 'volcano',
-  GEEKBLUE: 'geekblue'
+  GEEKBLUE: 'geekblue',
+  WHITE: 'white'
 };
