@@ -32,12 +32,10 @@ const WareHouseProduct = () => {
       status: 0,
     };
     setModal(false);
-    console.log(data);
     const response = await postProductionPlan(data);
     response.code === 200
       ? message.success(response.message)
       : message.error(response.message);
-    console.log(response);
   };
 
   return (

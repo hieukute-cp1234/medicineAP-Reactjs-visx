@@ -1,13 +1,18 @@
-import React from 'react';
-import { Card } from 'antd';
-import Button from '../../component/Button';
-import { style } from './style';
-import PropTypes from 'prop-types';
+import React from "react";
+import { Card } from "antd";
+import Button from "../../component/Button";
+import { style } from "./style";
+import PropTypes from "prop-types";
+import { role } from "../../constants/role";
 
 const { Meta } = Card;
 
 const CardComponent = (props) => {
   const { index, item, recipe, detailProcess } = props;
+  const roleUser = localStorage.getItem("role");
+  const isRoleUser = Number(roleUser) === role.USER;
+  const isRoleAdmin = Number(roleUser) === role.ADMIN;
+
   return (
     <Card
       key={index}
@@ -21,29 +26,37 @@ const CardComponent = (props) => {
       }
     >
       <Meta title={item.name} key={index} />
-      <div style={{ marginTop: '25px' }}>
+      <div style={{ marginTop: "25px" }}>
         <Button
           style={style.button}
           onClick={() => recipe(item)}
           type="primary"
-          title='Thành phần'
+          title="Thành phần"
         />
-        <Button
-          type="primary"
-          marginLeft='10px'
-          title='Công đoạn'
-          onClick={() => detailProcess(item)}
-        />
+        {isRoleUser && (
+          <Button type="primary" marginLeft="10px" title="Đặt hàng" />
+        )}
+        {isRoleAdmin && (
+          <Button
+            type="primary"
+            marginLeft="10px"
+            title="Công đoạn"
+            onClick={() => detailProcess(item)}
+          />
+        )}
+        {roleUser === null && (
+          <Button type="primary" marginLeft="10px" title="Đặt hàng" />
+        )}
       </div>
     </Card>
-  )
-}
+  );
+};
 
 CardComponent.propTypes = {
   index: PropTypes.number,
   item: PropTypes.object,
   recipe: PropTypes.func,
-  detailProcess: PropTypes.func
-}
+  detailProcess: PropTypes.func,
+};
 
 export default CardComponent;
