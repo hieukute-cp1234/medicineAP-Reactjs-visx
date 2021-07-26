@@ -81,8 +81,6 @@ export const getPlanById = selector({
   get: ({ get }) => {
     const plan = get(atom.productionPlan);
     const proccess = get(getProccessById);
-    console.log("process", proccess);
-    console.log("plan", plan);
     const planItem = plan.filter(
       (item) => item.medicine._id === proccess.medicine._id && item.status === 0
     );

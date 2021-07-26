@@ -9,23 +9,22 @@ export const style = {
   },
 
   wrapper: {
-    height: '370px',
-    textAlign: 'center',
-    marginTop: '130px',
-    padding: '40px',
-    borderRadius: '10px',
-    boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.35)',
-    backgroundColor: 'white'
+    height: "370px",
+    marginTop: "130px",
+    padding: "40px",
+    borderRadius: "10px",
+    boxShadow: "0 0 30px 0 rgba(0, 0, 0, 0.35)",
+    backgroundColor: "white",
   },
 
   form: {
-    marginTop: '50px'
+    marginTop: "50px",
   },
   buttonRight: {
-    marginLeft: '30px', 
+    marginLeft: "30px",
   },
   buttonLeft: {
-    marginLeft: '10px',
-    marginTop: '30px'
-  }
+    marginLeft: "10px",
+    marginTop: "30px",
+  },
 };

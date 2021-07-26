@@ -1,4 +1,4 @@
-import { message } from 'antd'
+import { message } from "antd";
 
 export const configResult = (res) => {
   const result = res.status === 200 ? res.data : [];
@@ -7,7 +7,5 @@ export const configResult = (res) => {
 
 export const configMessage = (res) =>
   res.code === 200
-    ? message.success(res.message)
-    : message.error(res.message);
-
-
+    ? message.success(res.message, 2)
+    : message.error(res.message, 2);
