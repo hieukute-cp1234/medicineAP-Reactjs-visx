@@ -18,6 +18,7 @@ const NavBar = (props) => {
   const { pathname } = useLocation();
 
   const roleUser = localStorage.getItem("role");
+  const token = localStorage.getItem("token");
   const isRoleUser = Number(roleUser) === role.USER;
   const isRoleAdmin = Number(roleUser) === role.ADMIN;
 
@@ -27,11 +28,13 @@ const NavBar = (props) => {
         <Menu.Item key="/" icon={<HomeOutlined />}>
           <NavLink to="/">Home</NavLink>
         </Menu.Item>
+        {token && (
+          <Menu.Item key="/order" icon={<ShoppingCartOutlined />}>
+            <NavLink to="/order">Order</NavLink>
+          </Menu.Item>
+        )}
         {isRoleUser && (
           <>
-            <Menu.Item key="/order" icon={<ShoppingCartOutlined />}>
-              <NavLink to="/order">Oder</NavLink>
-            </Menu.Item>
             <Menu.Item key="/profile" icon={<ToolOutlined />}>
               <NavLink to="/profile">profile</NavLink>
             </Menu.Item>

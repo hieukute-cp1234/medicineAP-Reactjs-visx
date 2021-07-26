@@ -9,21 +9,20 @@ export const style = {
   },
 
   wrapper: {
-    height:"450px",
-    textAlign: 'center',
-    marginTop: '100px',
-    padding: '40px',
-    borderRadius: '10px',
-    boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.35)',
-    backgroundColor:"white"
+    marginTop: "20px",
+    marginBottom: "20px",
+    padding: "20px",
+    borderRadius: "10px",
+    boxShadow: "0 0 30px 0 rgba(0, 0, 0, 0.35)",
+    backgroundColor: "white",
   },
 
   form: {
-    marginTop: '50px'
+    marginTop: "30px",
   },
 
   buttonLeft: {
-    marginLeft: '50px',
-    marginTop: '30px'
-  }
+    marginLeft: "50px",
+    marginTop: "20px",
+  },
 };

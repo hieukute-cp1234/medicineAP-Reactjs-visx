@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { DragDropContext } from 'react-beautiful-dnd';
-import { Row, Col } from 'antd';
-import { getStep } from '../../service/stepConstructive';
-import Layout from '../../layout/layout';
-import Steps from './Steps';
-import Proccess from './Process';
-import Modal from './Modal';
-import { medicineData } from '../../recoil/atom/index';
-import { useRecoilValue } from 'recoil';
-import { postProcess } from '../../service/process';
-import { style } from './style';
+import React, { useState, useEffect } from "react";
+import { DragDropContext } from "react-beautiful-dnd";
+import { Row, Col } from "antd";
+import { getStep } from "../../service/stepConstructive";
+import Layout from "../../layout/layout";
+import Steps from "./Steps";
+import Proccess from "./Process";
+import Modal from "./Modal";
+import { medicineData } from "../../recoil/atom/index";
+import { useRecoilValue } from "recoil";
+import { postProcess } from "../../service/process";
+import { style } from "./style";
+import { configMessage } from "../../helpers/configResultApi";
 
 const StepsConstructive = () => {
   const medicine = useRecoilValue(medicineData);
@@ -21,9 +22,9 @@ const StepsConstructive = () => {
     const getStepData = async () => {
       const step = await getStep();
       setPrimaryPlan(step);
-    }
+    };
     getStepData();
-  }, [])
+  }, []);
 
   const id2List = {
     text: primaryPlan,
@@ -43,23 +44,25 @@ const StepsConstructive = () => {
     setPrimaryPlan(result?.text);
     setHighEndPlan(result?.text2);
     return result;
-  }
+  };
 
   const handleDragEnd = (result) => {
     const { source, destination } = result;
     if (!destination) return;
     if (source.droppableId === destination.droppableId) {
-      const item = source.droppableId === 'text' ? primaryPlan : highEndPlan;
+      const item = source.droppableId === "text" ? primaryPlan : highEndPlan;
       const [renderItem] = item.splice(result.source.index, 1);
       item.splice(result.destination.index, 0, renderItem);
-      source.droppableId === 'text' ? setPrimaryPlan(item) : setHighEndPlan(item);
+      source.droppableId === "text"
+        ? setPrimaryPlan(item)
+        : setHighEndPlan(item);
     } else {
       dragHandle(
         getList(source.droppableId),
         getList(destination.droppableId),
         source,
         destination
-      )
+      );
     }
   };
 
@@ -72,21 +75,26 @@ const StepsConstructive = () => {
     const id = item[0]._id;
     const step = [];
     for (let i = 0; i < highEndPlan.length; i++) {
-      step.push(highEndPlan[i]._id)
+      step.push(highEndPlan[i]._id);
     }
     const newProcess = {
       name: value.name,
       medicine: id,
       step: step,
-      status: 1
+      status: 1,
+    };
+    const result = await postProcess(newProcess);
+    if (result.code === 200) {
+      configMessage(result);
+    } else {
+      configMessage(result);
     }
-    await postProcess(newProcess)
-  }
+  };
 
   const cancel = () => {
     setModal(false);
-  }
-    
+  };
+
   return (
     <Layout>
       <Row>
@@ -94,14 +102,14 @@ const StepsConstructive = () => {
           <Col span={8} offset={3} style={style().center}>
             <Steps
               data={primaryPlan}
-              title='Steps'
+              title="Steps"
               number={primaryPlan.length}
             />
           </Col>
           <Col span={8} offset={3} style={style().center}>
             <Proccess
               data={highEndPlan}
-              title='Proccess'
+              title="Proccess"
               openModal={openModal}
               number={highEndPlan.length}
             />
@@ -109,14 +117,14 @@ const StepsConstructive = () => {
         </DragDropContext>
       </Row>
       <Modal
-        title='Please add process name and medicine name!'
+        title="Please add process name and medicine name!"
         isOpen={isModal}
         onFinish={onFinish}
         handleCancel={cancel}
         options={medicine}
       />
-      </Layout>
-  )
-}
+    </Layout>
+  );
+};
 
 export default StepsConstructive;

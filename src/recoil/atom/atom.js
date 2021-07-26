@@ -1,8 +1,10 @@
-export const GET_MEDICINES = 'GET_MEDICINES';
-export const GET_ID_RECIPE = 'GET_ID_RECIPE';
-export const GET_PRODUCITON_PLAN = 'GET_PRODUCITON_PLAN';
-export const GET_ELEMENTS_DATA = 'GET_ELEMENTS_DATA';
+export const GET_MEDICINES = "GET_MEDICINES";
+export const GET_ID_RECIPE = "GET_ID_RECIPE";
+export const GET_PRODUCITON_PLAN = "GET_PRODUCITON_PLAN";
+export const GET_ELEMENTS_DATA = "GET_ELEMENTS_DATA";
 
-export const NEW_PROCESS = 'NEW_PROCESS';
+export const NEW_PROCESS = "NEW_PROCESS";
 
-export const MEDICINE_BY_ID = 'MEDICINE_BY_ID';
+export const MEDICINE_BY_ID = "MEDICINE_BY_ID";
+
+export const GET_PROFILE = "GET_PROFILE";

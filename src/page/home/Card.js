@@ -8,7 +8,7 @@ import { role } from "../../constants/role";
 const { Meta } = Card;
 
 const CardComponent = (props) => {
-  const { index, item, recipe, detailProcess } = props;
+  const { index, item, recipe, detailProcess, openModal } = props;
   const roleUser = localStorage.getItem("role");
   const isRoleUser = Number(roleUser) === role.USER;
   const isRoleAdmin = Number(roleUser) === role.ADMIN;
@@ -25,7 +25,11 @@ const CardComponent = (props) => {
         />
       }
     >
-      <Meta title={item.name} key={index} />
+      <Meta
+        title={item.name}
+        key={index}
+        description={`Giá: ${item.price.toLocaleString()}₫`}
+      />
       <div style={{ marginTop: "25px" }}>
         <Button
           style={style.button}
@@ -34,7 +38,12 @@ const CardComponent = (props) => {
           title="Thành phần"
         />
         {isRoleUser && (
-          <Button type="primary" marginLeft="10px" title="Đặt hàng" />
+          <Button
+            type="primary"
+            marginLeft="10px"
+            title="Đặt hàng"
+            onClick={() => openModal(item)}
+          />
         )}
         {isRoleAdmin && (
           <Button
@@ -45,7 +54,12 @@ const CardComponent = (props) => {
           />
         )}
         {roleUser === null && (
-          <Button type="primary" marginLeft="10px" title="Đặt hàng" />
+          <Button
+            type="primary"
+            marginLeft="10px"
+            title="Đặt hàng"
+            onClick={() => openModal(item)}
+          />
         )}
       </div>
     </Card>
@@ -57,6 +71,7 @@ CardComponent.propTypes = {
   item: PropTypes.object,
   recipe: PropTypes.func,
   detailProcess: PropTypes.func,
+  openModal: PropTypes.func,
 };
 
 export default CardComponent;

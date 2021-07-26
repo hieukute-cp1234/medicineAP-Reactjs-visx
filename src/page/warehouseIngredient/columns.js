@@ -38,7 +38,7 @@ export const columns = [
     align: "center",
     width: "33%",
     render: (amount, data) => (
-      <p>{`${amount} ${data.status === 1 ? "Box" : "Jar"}`}</p>
+      <p>{`${amount} ${data.status === 1 ? "kilogam" : "lit"}`}</p>
     ),
   },
   {

@@ -88,3 +88,67 @@ export const dataTree3 = {
     },
   ],
 };
+
+export const dataTree4 = {
+  name: "Cardilopin",
+  amount: 30,
+  children: [
+    {
+      name: "Amlodiphine",
+      amount: 10,
+    },
+    {
+      name: "Tá dược",
+      children: [
+        {
+          name: "Magnesium",
+          amount: 40,
+        },
+        {
+          name: "Colloidal",
+          amount: 15,
+        },
+        {
+          name: "Triethanolamin",
+          amount: 15,
+        },
+        {
+          name: "Khuynh diệp",
+          amount: 15,
+        },
+      ],
+    },
+  ],
+};
+
+export const dataTree5 = {
+  name: "Thuốc tiêu hóa",
+  amount: 30,
+  children: [
+    {
+      name: "Titan dioxyl",
+      amount: 20,
+    },
+    {
+      name: "Menthol",
+      amount: 20,
+    },
+    {
+      name: "Tá dược",
+      children: [
+        {
+          name: "Long não",
+          amount: 15,
+        },
+        {
+          name: "Vitamin B1",
+          amount: 10,
+        },
+        {
+          name: "Colloidal",
+          amount: 15,
+        },
+      ],
+    },
+  ],
+};
