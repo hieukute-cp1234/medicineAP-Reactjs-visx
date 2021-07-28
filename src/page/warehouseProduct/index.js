@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Layout from '../../layout/Layout'
+import Layout from '../../layout/layout'
 import { Table, message } from 'antd';
 import { medicineData } from '../../recoil/atom/index';
 import { useRecoilValue } from 'recoil';

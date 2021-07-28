@@ -19,9 +19,12 @@ export const style = {
   form: {
     marginTop: '50px'
   },
-
+  buttonRight: {
+  
+    marginLeft: '30px', 
+  },
   buttonLeft: {
-    marginLeft: '50px',
+    marginLeft: '10px',
     marginTop: '30px'
   }
 };

@@ -25,7 +25,7 @@ const LoginComponent = () => {
   return (
     <Row>
       <Col span={10} offset={7} style={style.wrapper}>
-        <h1>Sign In</h1>
+        <h1>Đăng Nhập</h1>
         <Form
           style={style.form}
           {...style.layout}
@@ -49,7 +49,7 @@ const LoginComponent = () => {
             <Input.Password />
           </Form.Item>
           <Form.Item {...style.tailLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button type="primary" htmlType="submit"style={style.buttonRight}>
               Đăng nhập
             </Button>
             <Button type="primary" onClick={goRegister} style={style.buttonLeft}>
