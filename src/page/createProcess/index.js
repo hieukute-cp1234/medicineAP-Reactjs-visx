@@ -86,6 +86,7 @@ const StepsConstructive = () => {
   const cancel = () => {
     setModal(false);
   }
+    
   return (
     <Layout>
       <Row>
@@ -114,7 +115,7 @@ const StepsConstructive = () => {
         handleCancel={cancel}
         options={medicine}
       />
-    </Layout>
+      </Layout>
   )
 }
 

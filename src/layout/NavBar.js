@@ -4,7 +4,8 @@ import {
   DropboxOutlined,
   HomeOutlined,
   FileProtectOutlined,
-  ToolOutlined
+  ToolOutlined,
+  ShoppingCartOutlined
 } from '@ant-design/icons';
 import { NavLink, useLocation } from 'react-router-dom'
 
@@ -14,7 +15,7 @@ const NavBar = (props) => {
   const { Sider } = Layout;
   const { SubMenu } = Menu;
   const { pathname } = useLocation();
-
+  
   return (
     <Sider collapsed={collapsed}>
       <Menu theme="dark" defaultSelectedKeys={pathname} mode="inline">
@@ -44,6 +45,9 @@ const NavBar = (props) => {
           <NavLink to="/create-process">
             Create process
           </NavLink>
+        </Menu.Item>
+        <Menu.Item key="/order" icon={<ShoppingCartOutlined />}>
+            Order    
         </Menu.Item>
       </Menu>
     </Sider>
