@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { DragDropContext } from 'react-beautiful-dnd';
 import { Row, Col } from 'antd';
 import { getStep } from '../../service/stepConstructive';
-import Layout from '../../layout/Layout';
+import Layout from '../../layout/layout';
 import Steps from './Steps';
 import Proccess from './Process';
 import Modal from './Modal';

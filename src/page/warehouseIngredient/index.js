@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../../layout/Layout';
+import Layout from '../../layout/layout';
 import { useRecoilValue } from 'recoil';
 import { Table, Skeleton } from 'antd';
 import { getDataElements } from '../../recoil/selectors/index';

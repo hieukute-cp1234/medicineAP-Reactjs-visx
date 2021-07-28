@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import HeaderComponent from './Header';
+import HeaderComponent from './header';
 import './layout.css';
 import { Layout } from 'antd';
 import NavBar from './NavBar';

@@ -8,6 +8,10 @@ import { dataTree1, dataTree2, dataTree3 } from './data';
 import Node from './Node';
 import { HelpById } from '../../recoil/atom/index';
 import { useRecoilValue } from 'recoil';
+import { Row, Col, Layout, Breadcrumb } from "antd";
+import { NavLink } from 'react-router-dom'
+
+const { Header, Content, Footer } = Layout;
 
 const defaultMargin = { top: 10, left: 80, right: 80, bottom: 10 };
 
@@ -28,6 +32,19 @@ function Recipe({ width = 1350, height = 600, margin = defaultMargin }) {
   const xMax = width - margin.left - margin.right;
 
   return width < 10 ? null : (
+    <Layout>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+          <div className="logo" />
+          <h1 style={{color: 'white'}}>Thành Phần</h1>
+        </Header>
+        <Content className="site-layout" style={{ padding: '0 50px', marginTop: 64 }}>
+          <Breadcrumb style={{ margin: '6px 0 5px 20px' }}>
+            <NavLink to="/">
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+            </NavLink>
+            <Breadcrumb.Item>Thành Phần</Breadcrumb.Item>
+          </Breadcrumb>
+        </Content>
     <svg width={width} height={height}>
       <LinearGradient id="lg" from={color.rootNodeFrom} to={color.rootNodeTo} />
       <rect width={width} height={height} rx={14} fill={color.background} />
@@ -50,6 +67,7 @@ function Recipe({ width = 1350, height = 600, margin = defaultMargin }) {
         )}
       </Tree>
     </svg>
+    </Layout>
   );
 };
 

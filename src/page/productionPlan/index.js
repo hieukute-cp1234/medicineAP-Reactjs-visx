@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Layout from '../../layout/Layout';
+import Layout from '../../layout/layout';
 import { Table } from 'antd';
 import { useRecoilState } from 'recoil';
 import { useHistory } from 'react-router-dom';
