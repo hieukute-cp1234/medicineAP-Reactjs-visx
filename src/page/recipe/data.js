@@ -1,91 +1,90 @@
 export const dataTree1 = {
-  name: 'Thuốc cồn',
+  name: "Thuốc cồn",
   amount: 30,
   children: [
     {
-      name: 'Acid benzoic',
-      amount: 59,
+      name: "Acid benzoic",
+      amount: 20,
     },
     {
-      name: 'Acid slicylic',
-      amount: 65,
+      name: "Acid slicylic",
+      amount: 20,
     },
     {
-      name: 'Lod',
-      amount: 10,
+      name: "Lod",
+      amount: 12,
     },
     {
-      name: 'Tá dược',
+      name: "Tá dược",
       children: [
         {
-          name: 'Phenol',
-          amount: 33,
+          name: "Phenol",
+          amount: 15,
         },
         {
-          name: 'Kali iodid',
-          amount: 33,
+          name: "Kali iodid",
+          amount: 13,
         },
         {
-          name: 'Ethanol',
-          amount: 49,
-        }
+          name: "Ethanol",
+          amount: 20,
+        },
       ],
     },
   ],
 };
 
 export const dataTree2 = {
-  name: 'Dầu phật linh',
+  name: "Dầu phật linh",
   amount: 30,
   children: [
     {
-      name: 'Tinh dầu bạc hà',
-      amount: 40,
+      name: "Tinh dầu bạc hà",
+      amount: 15,
     },
     {
-      name: 'Menthol',
+      name: "Menthol",
       amount: 22,
     },
     {
-      name: 'Tinh dầu đinh hương',
-      amount: 18,
+      name: "Tinh dầu đinh hương",
+      amount: 24,
     },
     {
-      name: 'Long não',
-      amount: 70,
+      name: "Long não",
+      amount: 19,
     },
     {
-      name: 'Khuynh diệp',
-      amount: 29,
+      name: "Khuynh diệp",
+      amount: 20,
     },
   ],
 };
 
 export const dataTree3 = {
-  name: 'Thuốc tiêu hóa',
+  name: "Thuốc tiêu hóa",
   amount: 30,
   children: [
     {
-      name: 'Berberin clorid',
-      amount: 50,
+      name: "Berberin clorid",
+      amount: 40,
     },
     {
-      name: 'Tá dược',
+      name: "Tá dược",
       children: [
         {
-          name: 'Tricalci phostphat',
-          amount: 32,
+          name: "Tricalci phostphat",
+          amount: 10,
         },
         {
-          name: 'Magnesi stearat',
-          amount: 12,
+          name: "Magnesi stearat",
+          amount: 35,
         },
         {
-          name: 'Gelatin',
-          amount: 23,
-        }
+          name: "Gelatin",
+          amount: 15,
+        },
       ],
     },
   ],
 };
-

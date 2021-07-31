@@ -1,8 +1,8 @@
-import React from 'react';
-import { Group } from '@visx/group';
-import { color } from './color';
-import PropTypes from 'prop-types';
-import { message } from 'antd';
+import React from "react";
+import { Group } from "@visx/group";
+import { color } from "./color";
+import PropTypes from "prop-types";
+import { message } from "antd";
 
 function ParentNode({ node }) {
   const width = 80;
@@ -21,7 +21,7 @@ function ParentNode({ node }) {
         stroke={color.parentNode}
         strokeWidth={1}
         onClick={() => {
-          message.info(`Quantity in stock: ${node.data.amount}`, 3)
+          message.info(`${node.data.amount}%`, 3);
         }}
       />
       <text
@@ -29,7 +29,7 @@ function ParentNode({ node }) {
         fontSize={9}
         fontFamily="Arial"
         textAnchor="middle"
-        style={{ pointerEvents: 'none' }}
+        style={{ pointerEvents: "none" }}
         fill={color.text}
       >
         {node.data.name}
@@ -40,6 +40,6 @@ function ParentNode({ node }) {
 
 ParentNode.propTypes = {
   node: PropTypes.object,
-}
+};
 
 export default ParentNode;
