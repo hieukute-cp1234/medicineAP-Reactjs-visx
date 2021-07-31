@@ -3,6 +3,7 @@ import { Form, Input, Button, Row, Col, message } from 'antd';
 import { useHistory } from 'react-router-dom';
 import { style } from './style';
 import { register } from '../../service/auth';
+import Background from "../../img/bg2.jpg"
 
 const RegistrationComponent = () => {
   const history = useHistory();
@@ -23,10 +24,18 @@ const RegistrationComponent = () => {
   const goLogin = () => {
     history.push('/login');
   }
+  const BgStyle = {
+    width: "1365px",
+    height: "654px",
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
 
   return (
     <>
-      <Row>
+      <Row style={ BgStyle }>
         <Col span={10} offset={7} style={style.wrapper}>
           <h1>Register</h1>
           <Form

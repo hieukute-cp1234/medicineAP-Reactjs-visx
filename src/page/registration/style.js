@@ -9,11 +9,13 @@ export const style = {
   },
 
   wrapper: {
+    height:"450px",
     textAlign: 'center',
     marginTop: '100px',
     padding: '40px',
     borderRadius: '10px',
-    boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.35)'
+    boxShadow: '0 0 30px 0 rgba(0, 0, 0, 0.35)',
+    backgroundColor:"white"
   },
 
   form: {
