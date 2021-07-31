@@ -18,13 +18,13 @@ const HeaderComponent = (props) => {
 
   const menu = () => (
     <Menu>
-      <Menu.Item>hieukute</Menu.Item>
+      <Menu.Item style={{textAlign: 'center'}}>hieukute</Menu.Item>
       <Menu.Item>
         <Button
           title="SignOut"
           icon={<RollbackOutlined />}
           onClick={goBack}
-          style={{ border: "none" }}
+          style={{ border: "none"}}
         />
       </Menu.Item>
     </Menu>
@@ -38,13 +38,14 @@ const HeaderComponent = (props) => {
         <Col span={8}>
           <h1>APP QUẢN LÝ NHÀ MÁY DƯỢC PHẨM</h1>
         </Col>
-        <Col span={8} style={{ textAlign: "right" }}>
+        <Col span={8} style={{ textAlign: "right",paddingRight: "30px" }}>
           <Dropdown
             trigger="click"
             overlay={menu}
             placement="bottomCenter"
             arrow
           >
+            
             <Avatar style={{ color: "#f56a00", backgroundColor: "#fde3cf" }}>
               H
             </Avatar>

@@ -20,7 +20,6 @@ export const style = {
     marginTop: '50px'
   },
   buttonRight: {
-  
     marginLeft: '30px', 
   },
   buttonLeft: {
