@@ -4,6 +4,7 @@ import { style } from "./style";
 import { useHistory } from "react-router-dom";
 import { login } from "../../service/auth";
 import { messageValidate } from "../../constants/messageValidate";
+import Background from "../../img/bg2.jpg"
 
 const LoginComponent = () => {
   const history = useHistory();
@@ -21,12 +22,19 @@ const LoginComponent = () => {
       message.error(result.message, 3);
     }
   };
-
+  const BgStyle = {
+    width: "1365px",
+    height: "654px",
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
   const goRegister = () => {
     history.push("/registration");
   };
   return (
-    <Row>
+    <Row style={ BgStyle }>
       <Col span={10} offset={7} style={style.wrapper}>
         <h1>Đăng Nhập</h1>
         <Form

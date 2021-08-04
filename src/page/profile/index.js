@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Row, Col } from "antd";
+import { Row, Col,List, Typography, Divider } from "antd";
 import Button from "../../component/Button";
 import DescriptionProfile from "./Profile";
 import Modal from "./Modal";
@@ -29,8 +29,8 @@ const Profile = () => {
   };
   return (
     <Layout>
-      <Row>
-        <Col span={12} offset={6}>
+      <Row style={{background:"#f0f2f5"}}>
+        <Col span={12} offset={6} style={{marginTop:"20px",marginBottom:"20px"}}>
           <DescriptionProfile
             title="My Profile"
             label={label}
