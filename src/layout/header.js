@@ -5,6 +5,7 @@ import Button from "../component/Button";
 import { useHistory } from "react-router-dom";
 import { RollbackOutlined, MenuOutlined } from "@ant-design/icons";
 import PropTypes from "prop-types";
+import logo from "../img/logo.png";
 
 const { Header } = Layout;
 
@@ -64,7 +65,8 @@ const HeaderComponent = (props) => {
     <Header style={{ padding: "0 30px" }} className="site-layout-background">
       <Row width="100%">
         <Col span={8} style={{ textAlign: "left" }}>
-          <MenuOutlined onClick={click} style={{ fontSize: "25px" }} />
+          <MenuOutlined onClick={click} style={{ fontSize: "20px" }} />
+          <img src={logo} alt="logo" className="logo" />
         </Col>
         <Col span={8}>
           <h1>APP QUẢN LÝ NHÀ MÁY DƯỢC PHẨM</h1>

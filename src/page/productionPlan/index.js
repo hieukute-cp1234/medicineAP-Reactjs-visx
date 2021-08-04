@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Layout from "../../layout/layout";
 import { Table } from "antd";
 import { useRecoilState } from "recoil";
-import { useHistory } from "react-router-dom";
 import { productionPlan } from "../../recoil/atom/index";
 import { columns } from "./columns";
 import Modal from "./Modal";
@@ -14,13 +13,13 @@ import {
 import { configResult, configMessage } from "../../helpers/configResultApi";
 
 const ProductionPlan = () => {
-  const history = useHistory();
   const [dataPlan, setDataPlan] = useRecoilState(productionPlan);
   const [isModal, setModal] = useState(false);
   const [id, setId] = useState({
     idPlan: "",
     idMedicine: "",
   });
+  const [idPlan, setIdpLan] = useState();
   const [dataItem, setDataItem] = useState({
     name: "hieu1",
     amount: 20,
@@ -31,7 +30,7 @@ const ProductionPlan = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await getProductionPlanData();
-      const data = await configResult(response);
+      const data = configResult(response);
       setDataPlan(data);
     };
     fetchData();
@@ -45,6 +44,7 @@ const ProductionPlan = () => {
       status: data.status,
     };
     setDataItem(newData);
+    setIdpLan(_id);
     setId({
       idPlan: _id,
       idMedicine: data.medicine._id,
@@ -54,10 +54,6 @@ const ProductionPlan = () => {
 
   const handleCancel = () => {
     setModal(false);
-  };
-
-  const goBack = () => {
-    history.goBack();
   };
 
   const handleSubmit = async (values) => {
@@ -70,8 +66,7 @@ const ProductionPlan = () => {
       status: values.status,
       __v: 0,
     };
-    console.log(data);
-    const response = await putProductionPlan(id.idPlan, data);
+    const response = await putProductionPlan(idPlan, data);
     if (response.code === 200) {
       configMessage(response);
       setModal(false);
@@ -84,7 +79,7 @@ const ProductionPlan = () => {
     <Layout>
       <Table
         scroll={{ y: 362 }}
-        columns={columns(edit, goBack)}
+        columns={columns(edit)}
         dataSource={dataPlan}
       />
       <Modal

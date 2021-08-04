@@ -1,23 +1,19 @@
 import Button from "../../component/Button";
-import { EditFilled, FileTextOutlined } from "@ant-design/icons";
+import { EditFilled } from "@ant-design/icons";
 import { Tag } from "antd";
 import { handleStatus } from "../../helpers/handleStatus";
 import { colorStatus } from "../../constants/color";
 
-const renderAction = (id, name, edit, goBack) => {
+const renderAction = (id, name, edit) => {
   return (
     <span>
       <Button
+        type="primary"
         key={id}
         onClick={() => edit(id, name)}
         title="Edit"
         icon={<EditFilled />}
-      />
-      <Button
-        marginLeft={8}
-        title="Detail"
-        icon={<FileTextOutlined />}
-        onClick={goBack}
+        disabled={name.status === 2 ? true : false}
       />
     </span>
   );
@@ -43,7 +39,7 @@ const renderTag = (status) => {
   );
 };
 
-export const columns = (edit, goBack) => {
+export const columns = (edit) => {
   return [
     {
       title: "Name plan",
@@ -90,7 +86,7 @@ export const columns = (edit, goBack) => {
       key: "_id",
       width: "20%",
       align: "center",
-      render: (_id, name) => renderAction(_id, name, edit, goBack),
+      render: (_id, data) => renderAction(_id, data, edit),
     },
   ];
 };
